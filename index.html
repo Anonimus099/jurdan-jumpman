@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jordan Jumpman 2021 PF - Nike Jordan Store</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Condensed:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="screen">
+      <!-- Slider Container -->
+      <div class="slider-container">
+        <!-- Slide 1 - Red -->
+        <div class="slide active" data-slide="0" data-color="red">
+          <div class="background slide-bg"></div>
+        </div>
+        <!-- Slide 2 - Blue -->
+        <div class="slide" data-slide="1" data-color="blue">
+          <div class="background slide-bg"></div>
+        </div>
+        <!-- Slide 3 - White/Original -->
+        <div class="slide" data-slide="2" data-color="white">
+          <div class="background slide-bg"></div>
+        </div>
+        <!-- Slide 4 - Green -->
+        <div class="slide" data-slide="3" data-color="green">
+          <div class="background slide-bg"></div>
+        </div>
+        <!-- Slide 5 - Purple -->
+        <div class="slide" data-slide="4" data-color="purple">
+          <div class="background slide-bg"></div>
+        </div>
+      </div>
+
+      <!-- Navigation dots -->
+      <div class="navigation-bar">
+        <div class="nav-dot active" data-slide="0"></div>
+        <div class="nav-dot" data-slide="1"></div>
+        <div class="nav-dot" data-slide="2"></div>
+        <div class="nav-dot" data-slide="3"></div>
+        <div class="nav-dot" data-slide="4"></div>
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="slider-controls">
+        <button class="slider-btn slider-prev" aria-label="Previous slide">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path
+              d="M18 22L10 15L18 8"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <button class="slider-btn slider-next" aria-label="Next slide">
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+            <path
+              d="M12 8L20 15L12 22"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Header with logos -->
+      <header class="header">
+        <div class="logos">
+          <div class="jordan-logo">
+            <img src="images/jumpman-logo.svg" alt="Jordan Logo" />
+            <span>JORDAN</span>
+          </div>
+          <div class="nike-logo">
+            <img src="images/nike-logo.svg" alt="Nike Logo" />
+          </div>
+        </div>
+
+        <!-- Menu Navigation -->
+        <nav class="menu-navigation">
+          <a href="#" class="menu-item active">HOME</a>
+          <a href="#" class="menu-item">MAN</a>
+          <a href="#" class="menu-item">WOMAN</a>
+          <a href="#" class="menu-item">KIDS</a>
+          <a href="#" class="menu-item">SALE</a>
+        </nav>
+
+        <!-- Search, Cart and Profile -->
+        <div class="header-actions">
+          <div class="search-icon">
+            <img src="images/search-icon.svg" alt="Search" />
+          </div>
+          <div class="cart-icon">
+            <img src="images/cart-icon.svg" alt="Cart" />
+          </div>
+          <div class="avatar">
+            <img src="images/avatar-22f719.png" alt="Profile" />
+          </div>
+        </div>
+      </header>
+
+      <!-- Product Info -->
+      <div class="product-section">
+        <!-- Pricing and Title -->
+        <div class="pricing-section">
+          <div class="price">134$</div>
+          <div class="product-info">
+            <div class="exclusive-badge">exclusive</div>
+            <h1 class="product-title">JORDAN<br />JUMPMAN 2021 PF</h1>
+          </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="cta-buttons">
+          <button class="btn btn-primary">ADD TO CART</button>
+          <button class="btn btn-secondary">BUY NOW</button>
+        </div>
+
+        <!-- Choose Color -->
+        <div class="color-selector">
+          <p class="color-label">CHOOSE COLOR :</p>
+          <div class="shoe-colors">
+            <img src="images/shoes-colors.svg" alt="Shoe Colors" />
+          </div>
+        </div>
+
+        <!-- Inspiration Section -->
+        <div class="inspiration-section">
+          <h3 class="inspiration-title">INSPIRATION</h3>
+          <p class="inspiration-text">
+            Inspired by the design of the latest Air Jordan game shoe, the
+            Jordan Jumpman 2021 helps up-and-coming players level up their game.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

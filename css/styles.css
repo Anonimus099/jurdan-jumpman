@@ -1,0 +1,862 @@
+/* Import Monument Extended Alternative - Using Bebas Neue as alternative */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&family=Roboto+Condensed:wght@400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.screen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+/* Slider Container */
+.slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Slides */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.slide.prev {
+    transform: scale(0.9);
+}
+
+/* Background */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Color Filters for Slides */
+.slide[data-color="red"] .background {
+    filter: hue-rotate(0deg) saturate(1.3) brightness(1);
+}
+
+.slide[data-color="blue"] .background {
+    filter: hue-rotate(200deg) saturate(1.2) brightness(1.1);
+}
+
+.slide[data-color="white"] .background {
+    filter: brightness(1.2) saturate(0.8) contrast(1.1);
+}
+
+.slide[data-color="green"] .background {
+    filter: hue-rotate(90deg) saturate(1.1) brightness(1);
+}
+
+.slide[data-color="purple"] .background {
+    filter: hue-rotate(270deg) saturate(1.3) brightness(0.95);
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2vw;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.slider-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+}
+
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+}
+
+.slider-btn:active {
+    transform: scale(0.95);
+}
+
+.slider-btn svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Navigation Bar (dots) */
+.navigation-bar {
+    position: absolute;
+    top: 43.52vh;
+    right: 5.26vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.39vh;
+    z-index: 10;
+}
+
+.nav-dot {
+    width: min(0.83vw, 12px);
+    height: min(1.48vh, 12px);
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.nav-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.nav-dot:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.nav-dot:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.nav-dot.active {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.5);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    border-color: rgba(235, 0, 0, 0.5);
+}
+
+.nav-dot.active::before {
+    transform: translate(-50%, -50%) scale(1);
+    border-color: rgba(235, 0, 0, 0.6);
+}
+
+/* Header */
+.header {
+    position: relative;
+    z-index: 5;
+    padding: 5.19vh 3.18vw 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Logos */
+.logos {
+    display: flex;
+    align-items: center;
+    gap: 3.49vw;
+}
+
+.jordan-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.jordan-logo img {
+    width: 3.65vw;
+    height: 6.49vh;
+    max-width: 52.53px;
+    max-height: 52.53px;
+}
+
+.jordan-logo span {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 800;
+    font-size: clamp(8px, 0.76vw, 11px);
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    margin-top: -1vh;
+}
+
+.nike-logo img {
+    width: 4.74vw;
+    height: 2.96vh;
+    max-width: 68.25px;
+    max-height: 24px;
+}
+
+/* Menu Navigation */
+.menu-navigation {
+    position: absolute;
+    left: 29.69vw;
+    top: 8.15vh;
+    display: flex;
+    gap: 3.49vw;
+    align-items: center;
+}
+
+.menu-item {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 800;
+    font-size: clamp(10px, 0.9vw, 13px);
+    letter-spacing: 0.465em;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.menu-item:hover {
+    opacity: 0.8;
+}
+
+.menu-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.62vh;
+    left: 0;
+    width: 100%;
+    height: 0.28vh;
+    background-color: #EB0000;
+}
+
+/* Header Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 3.07vw;
+}
+
+.search-icon img,
+.cart-icon img {
+    width: 1.88vw;
+    height: 3.33vh;
+    max-width: 27px;
+    max-height: 27px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.search-icon img:hover,
+.cart-icon img:hover {
+    transform: scale(1.1);
+}
+
+.avatar {
+    width: 2.6vw;
+    height: 4.63vh;
+    max-width: 37.5px;
+    max-height: 37.5px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Product Section */
+.product-section {
+    position: relative;
+    z-index: 5;
+}
+
+/* Apply animations to sections */
+.pricing-section {
+    animation: fadeInRight 1s ease-out 0.3s both;
+}
+
+.cta-buttons {
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.cta-buttons .btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cta-buttons .btn:hover {
+    animation: pulse 0.6s ease-in-out infinite;
+}
+
+.color-selector {
+    animation: fadeInLeft 1s ease-out 0.4s both;
+}
+
+.inspiration-section {
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.navigation-bar {
+    animation: fadeInRight 1s ease-out 0.7s both;
+}
+
+/* Pricing Section */
+.pricing-section {
+    position: absolute;
+    top: 57.96vh;
+    left: 53.89vw;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.35vw;
+}
+
+.price {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    font-size: clamp(24px, 2.5vw, 36px);
+    line-height: 1.2;
+    color: #E70000;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.exclusive-badge {
+    background-color: #EB0000;
+    border-radius: 1.2vh;
+    padding: 0.93vh 1.04vw;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: clamp(10px, 0.83vw, 12px);
+    color: #FFFFFF;
+    margin-bottom: 0.99vh;
+    white-space: nowrap;
+}
+
+.product-title {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    font-size: clamp(14px, 1.25vw, 18px);
+    line-height: 1.125;
+    letter-spacing: 0.21em;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    position: absolute;
+    top: 80.37vh;
+    left: 37.03vw;
+    display: flex;
+    gap: 2.29vw;
+}
+
+.btn {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 800;
+    font-size: clamp(10px, 0.9vw, 13px);
+    padding: 1.85vh 2.08vw;
+    height: 6.39vh;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 1.85vh 1.56vw;
+}
+
+.btn-primary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-0.25vh);
+    box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #FFFFFF;
+    border: 0.09vh solid #FFFFFF;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-0.25vh);
+}
+
+/* Color Selector */
+.color-selector {
+    position: absolute;
+    top: 73.43vh;
+    left: 5.63vw;
+}
+
+.color-label {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 800;
+    font-size: clamp(10px, 0.9vw, 13px);
+    color: #FFFFFF;
+    margin-bottom: 1.23vh;
+    white-space: nowrap;
+}
+
+.shoe-colors {
+    margin-top: 1.85vh;
+}
+
+.shoe-colors img {
+    width: 33vw;
+    height: 16.25vh;
+    max-width: 475.5px;
+    max-height: 131.63px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.shoe-colors img:hover {
+    transform: scale(1.05);
+}
+
+/* Inspiration Section */
+.inspiration-section {
+    position: absolute;
+    top: 76.39vh;
+    left: 71.72vw;
+    width: 23.85vw;
+    max-width: 343.5px;
+}
+
+.inspiration-title {
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 800;
+    font-size: clamp(11px, 0.97vw, 14px);
+    letter-spacing: 0.2em;
+    color: #FFFFFF;
+    margin-bottom: 0.83vh;
+}
+
+.inspiration-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: clamp(11px, 0.9vw, 13px);
+    line-height: 1.56;
+    color: #FFFFFF;
+    width: 100%;
+    max-width: 333px;
+}
+
+/* Cart Badge */
+.cart-icon {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -0.5vh;
+    right: -0.5vw;
+    background-color: #EB0000;
+    color: white;
+    border-radius: 50%;
+    width: 1.2vw;
+    height: 2.2vh;
+    min-width: 18px;
+    min-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(9px, 0.7vw, 11px);
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 2px 8px rgba(235, 0, 0, 0.5);
+}
+
+/* Notification System */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(14px, 1vw, 16px);
+    z-index: 10000;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification-success {
+    background: linear-gradient(135deg, rgba(0, 200, 83, 0.9), rgba(0, 150, 60, 0.9));
+    color: white;
+}
+
+.notification-info {
+    background: linear-gradient(135deg, rgba(235, 0, 0, 0.9), rgba(180, 0, 0, 0.9));
+    color: white;
+}
+
+.notification-warning {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.9), rgba(255, 160, 0, 0.9));
+    color: #333;
+}
+
+/* Checkout Modal */
+.checkout-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.checkout-modal.show {
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    pointer-events: auto;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    transform: scale(0.7);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.checkout-modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #EB0000, #B40000);
+    color: white;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(20px, 2vw, 28px);
+    letter-spacing: 0.1em;
+}
+
+.modal-close {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 30px;
+    color: #333;
+}
+
+.modal-body p {
+    margin: 15px 0;
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.6;
+}
+
+.modal-body strong {
+    color: #EB0000;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.1em;
+    letter-spacing: 0.05em;
+}
+
+.modal-message {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(235, 0, 0, 0.1), rgba(235, 0, 0, 0.05));
+    border-left: 4px solid #EB0000;
+    border-radius: 8px;
+    font-style: italic;
+}
+
+/* Ripple Effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #EB0000, #FF6B6B);
+    z-index: 10000;
+    width: 0%;
+    transition: width 0.1s ease;
+    box-shadow: 0 0 10px rgba(235, 0, 0, 0.5);
+}
+
+/* Enhanced Hover Effects */
+.jordan-logo,
+.nike-logo,
+.pricing-section,
+.inspiration-section,
+.navigation-bar {
+    transition: transform 0.1s ease-out;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, a, .nav-dot, .slider-btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Loading state */
+.loading {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Responsive Design - Mobile adjustments */
+@media screen and (max-width: 768px) {
+    .menu-navigation {
+        gap: 2vw;
+    }
+    
+    .menu-item {
+        font-size: clamp(8px, 2vw, 10px);
+        letter-spacing: 0.3em;
+    }
+    
+    .header-actions {
+        gap: 2vw;
+    }
+    
+    .jordan-logo img,
+    .nike-logo img,
+    .search-icon img,
+    .cart-icon img,
+    .avatar {
+        min-width: 20px;
+        min-height: 20px;
+    }
+    
+    .btn {
+        font-size: clamp(9px, 2vw, 11px);
+        padding: 1.5vh 1.5vw;
+    }
+    
+    .inspiration-section {
+        width: 28vw;
+    }
+    
+    .shoe-colors img {
+        width: 40vw;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    /* Limit maximum sizes for very large screens */
+    .jordan-logo img {
+        max-width: 70px;
+        max-height: 70px;
+    }
+    
+    .nike-logo img {
+        max-width: 90px;
+        max-height: 32px;
+    }
+    
+    .menu-item {
+        font-size: 16px;
+    }
+    
+    .price {
+        font-size: 48px;
+    }
+    
+    .product-title {
+        font-size: 24px;
+    }
+}
+
