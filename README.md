@@ -80,6 +80,11 @@ Accents:        #000000
 Shadow:         rgba(0, 0, 0, 0.15)
 ```
 
+
+##📸 Screenshots
+
+
+
 ### Typography
 - **Headings & Navigation:** Bebas Neue (Monument Extended alternative)
 - **Body Text:** Roboto
