@@ -83,6 +83,7 @@ Shadow:         rgba(0, 0, 0, 0.15)
 
 ## 📸 Screenshots
 
+<img width="1917" height="1080" alt="jordan" src="https://github.com/user-attachments/assets/5d2bc0e0-7a22-4b21-bbab-cf4a822b4671" />
 
 
 ### Typography
